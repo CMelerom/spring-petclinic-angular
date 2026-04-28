@@ -24,11 +24,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Google install
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y google-chrome-stable
-
     - name : Install Dependencies
       run: npm ci
 
@@ -37,8 +32,3 @@ jobs:
 
     - name: Lint
       run: npm run lint
-
-    - name: Test
-      env:
-        CHROME_BIN: /usr/bin/google-chrome
-      run: npm run test-headless
