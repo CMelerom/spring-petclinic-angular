@@ -2,14 +2,14 @@ name: Angular CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ test ]
   pull_request:
-    branches: [ master ]
+    branches: [ test ]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: helm-gh-runner
 
     strategy:
       matrix:
