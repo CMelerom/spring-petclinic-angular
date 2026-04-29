@@ -24,10 +24,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install Google Chrome
+    - name: Install Chromium via Puppeteer
+      run: npx puppeteer browsers install chrome
+
+    - name: Test
       run: |
-        sudo apt-get update
-        sudo apt-get install -y google-chrome-stable
+        export CHROME_BIN=$(node -e "console.log(require('puppeteer').executablePath())" 2>/dev/null || which google-chrome || which chromium-browser)
+        npm run test-headless
 
     - name : Install Dependencies
       run: npm ci
