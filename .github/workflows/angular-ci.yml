@@ -27,11 +27,6 @@ jobs:
     - name: Install Chromium via Puppeteer
       run: npx puppeteer browsers install chrome
 
-    - name: Test
-      run: |
-        export CHROME_BIN=$(node -e "console.log(require('puppeteer').executablePath())" 2>/dev/null || which google-chrome || which chromium-browser)
-        npm run test-headless
-
     - name : Install Dependencies
       run: npm ci
 
@@ -42,4 +37,6 @@ jobs:
       run: npm run lint
 
     - name: Test
-      run: npm run test-headless
+      run: |
+        export CHROME_BIN=$(node -e "console.log(require('puppeteer').executablePath())" 2>/dev/null || which google-chrome || which chromium-browser)
+        npm run test-headless
