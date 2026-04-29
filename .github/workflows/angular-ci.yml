@@ -38,5 +38,10 @@ jobs:
 
     - name: Test
       run: |
-        export CHROME_BIN=$(node -e "console.log(require('puppeteer').executablePath())" 2>/dev/null || which google-chrome || which chromium-browser)
-        npm run test-headless
+        export PUPPETEER_CACHE_DIR=$HOME/.cache/puppeteer
+        npx puppeteer browsers install chrome
+        
+        CHROME_PATH=$(node -e "console.log(require('puppeteer').executablePath())")
+        echo "Chrome se encuentra en: $CHROME_PATH"
+        
+        CHROME_BIN=$CHROME_PATH npm run test-headless
