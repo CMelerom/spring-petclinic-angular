@@ -41,7 +41,8 @@ jobs:
         export PUPPETEER_CACHE_DIR=$HOME/.cache/puppeteer
         npx puppeteer browsers install chrome
         
-        CHROME_PATH=$(node -e "console.log(require('puppeteer').executablePath())")
-        echo "Chrome se encuentra en: $CHROME_PATH"
+        export CHROME_BIN=$(find $HOME/.cache/puppeteer -name chrome -type f | head -n 1)
         
-        CHROME_BIN=$CHROME_PATH npm run test-headless
+        echo "Usando Chrome en: $CHROME_BIN"
+        
+        npm run test-headless
