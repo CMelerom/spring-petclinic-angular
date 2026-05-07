@@ -1,12 +1,10 @@
 apiVersion: actions.summerwind.dev/v1alpha1
-kind: RunnerDeployment
+kind: Runner
 metadata:
-  name: runner-angular
+  name: my-gh-runner
   namespace: arc
 spec:
-  replicas: 3
-  template:
-    spec:
-      repository: CMelerom/spring-petclinic-angular
-      labels:
-        - helm-gh-runner
+  repository: CMelerom/spring-petclinic-angular
+  labels:
+    - helm-gh-runner
+  dockerEnabled: true        
