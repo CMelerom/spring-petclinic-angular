@@ -4,7 +4,7 @@ metadata:
   name: runner-angular
   namespace: arc
 spec:
-  replicas: 11 
+  replicas: 10
   template:
     spec:
       repository: CMelerom/spring-petclinic-angular
