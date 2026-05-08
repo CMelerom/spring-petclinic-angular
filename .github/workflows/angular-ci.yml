@@ -56,7 +56,7 @@ jobs:
 
   Build:
     runs-on: helm-gh-runner
-    needs: Install_Dependencies_Browser
+    needs: Install_Node_Chrome_dependencies
     steps:
     - name: Build
       run: npm run build --if-present -- --configuration production
