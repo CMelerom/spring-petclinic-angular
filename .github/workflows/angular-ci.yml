@@ -26,7 +26,7 @@ jobs:
 
     - name: Test
       run: |
-        export CHROME_BIN=$(find $HOME/.cache/puppeteer -name chrome -type f | head -n 1)
+        export CHROME_BIN=$(find /root/.cache/puppeteer -name chrome -type f | head -n 1)
         npm run test-headless
 
   docker_push:
