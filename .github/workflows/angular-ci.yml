@@ -10,7 +10,7 @@ jobs:
     runs-on: helm-gh-runner
 
     container:
-      image: cmelerom/node_install:v1
+      image: cmelerom/node_install:v2
       credentials:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_TOKEN }}
