@@ -20,8 +20,8 @@ jobs:
     - name: Install Chromium via Puppeteer
       run: npx puppeteer browsers install chrome
 
-    - name : Install Dependencies
-      run: npm ci
+    - name: call workflow
+      uses: cmelerom/ang/spring-petclinic-angular/.github/workflows/npm.yml@master
 
     - name: Install Browser Dependencies
       run: |
