@@ -21,7 +21,7 @@ jobs:
       run: npx puppeteer browsers install chrome
 
     - name: call workflow
-      uses: cmelerom/ang/spring-petclinic-angular/.github/workflows/npm.yml@master
+      uses: ./.github/workflows/npm.yml@master
 
     - name: Install Browser Dependencies
       run: |
