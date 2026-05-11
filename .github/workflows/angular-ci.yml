@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  build_test:
 
     runs-on: helm-gh-runner
 
@@ -45,26 +45,27 @@ jobs:
     - name: Build
       run: npm run build --if-present -- --configuration production
 
-  tests:
-    runs-on: helm-gh-runner
-    needs: build
-    steps:
-
     - name: Test
       run: |
         export CHROME_BIN=$(find $HOME/.cache/puppeteer -name chrome -type f | head -n 1)
         npm run test-headless
 
+  docker_push:
+    runs-on: helm-gh-runner
+    needs: build_test
+    steps:
+
     - name: Build
       run: docker build -t ${{ secrets.DOCKER_USER }}/angular:v1 .
 
-  push_and_deploy:
-    runs-on: helm-gh-runner
-    needs: tests 
-    steps:
-
     - name: Push
       run: docker push ${{ secrets.DOCKER_USER }}/angular:v1
+
+
+  deploy:
+    runs-on: helm-gh-runner
+    needs: docker_push 
+    steps:
 
     - name: Install kubectl
       uses: azure/setup-kubectl@v3
