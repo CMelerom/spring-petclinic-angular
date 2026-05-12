@@ -17,7 +17,7 @@ spec:
     spec:
       containers: 
        - name: angular
-         image: cmelerom/angular:v1
+         image: cmelerom/angular:v2
          ports:
          - containerPort: 8080
 ---
