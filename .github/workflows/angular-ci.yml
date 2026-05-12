@@ -36,10 +36,6 @@ jobs:
     with:
       image: "angular"          
       deployment: "angular-deployment" 
-    secrets:
-      DOCKER_USER: ${{ secrets.DOCKER_USER }}
-      DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-      KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
-    
+    secrets: inherit
 
     
