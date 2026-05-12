@@ -34,8 +34,8 @@ jobs:
     needs: build_test
     uses: CMelerom/Github-action/.github/workflows/reusable.yml@master
     with:
-      image_name: "angular"          
-      deployment_name: "angular-deployment" 
+      image: "angular"          
+      deployment: "angular-deployment" 
     secrets:
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
       DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
