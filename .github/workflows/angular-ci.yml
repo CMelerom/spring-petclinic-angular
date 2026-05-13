@@ -29,6 +29,12 @@ jobs:
         export CHROME_BIN=$(find /root/.cache/puppeteer -name chrome -type f | head -n 1)
         npm run test-headless
 
+    - name: SonarQube
+      uses: SonarSource/sonarqube-scan-action@v3 
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} #
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
 
   reusable:
     needs: build_test
