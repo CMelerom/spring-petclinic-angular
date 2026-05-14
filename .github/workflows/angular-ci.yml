@@ -1,4 +1,4 @@
-name: Angular CI new
+name: Angular CI v3
 
 on:
   push:
